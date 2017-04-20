@@ -212,9 +212,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.insert(TABLE_VORUDKHORUJ, null, values);
         db.close();
     }
-    public ArrayList<VorudKhoruj> getAllVorudKhoruj() {
+    public ArrayList<VorudKhoruj> getAllVorudKhorujNBaygani() {
         ArrayList<VorudKhoruj> vorudKhorujArrayList = new ArrayList<VorudKhoruj>();
-        String selectQuery = "SELECT * FROM " + TABLE_VORUDKHORUJ;
+        String selectQuery = "SELECT * FROM " + TABLE_VORUDKHORUJ+ " WHERE "+KEY_VORUDKHORUJISBAYGANI+" ='false'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
@@ -312,9 +312,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.insert(TABLE_DARAMADRUZANE, null, values);
         db.close();
     }
-    public ArrayList<DaramadRuzane> getAllDaramadRuzane() {
+    public ArrayList<DaramadRuzane> getAllDaramadRuzaneNBaygani() {
         ArrayList<DaramadRuzane> daramadRuzaneArrayList = new ArrayList<DaramadRuzane>();
-        String selectQuery = "SELECT * FROM " + TABLE_DARAMADRUZANE;
+        String selectQuery = "SELECT * FROM " + TABLE_DARAMADRUZANE+ " WHERE "+KEY_DARAMADRUZANEISBAYGANI+" ='false'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
@@ -345,5 +345,51 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         } catch (Exception e) {
         }
         return daramadRuzane;
+    }
+    public void BayganiDaramad (ArrayList<DaramadRuzane> daramadRuzanes , String status) {
+        for (int i=0 ; i<daramadRuzanes.size() ; i++){
+            DaramadRuzane daramadRuzane = daramadRuzanes.get(i);
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(KEY_DARAMADRUZANEDAY, daramadRuzane.getDay());
+            values.put(KEY_DARAMADRUZANEDATE, daramadRuzane.getDate());
+            values.put(KEY_DARAMADRUZANEMABLAGH, daramadRuzane.getMablagh());
+            values.put(KEY_DARAMADRUZANEDES,daramadRuzane.getDes());
+            values.put(KEY_DARAMADRUZANESHIFT, daramadRuzane.getShift());
+            values.put(KEY_DARAMADRUZANEISBAYGANI, "true");
+            values.put(KEY_DARAMADRUZANESTATUS, status);
+            int result = db.update(TABLE_DARAMADRUZANE, values, KEY_DARAMADRUZANEID+ "=?", new String[]{String.valueOf(daramadRuzane.getId())});
+            db.close();
+        }
+    }
+    public ArrayList<String> getAllDaramaddStatusBaygani() {
+        ArrayList<String> status= new ArrayList<String>();
+        String selectQuery = "SELECT DISTINCT "+KEY_DARAMADRUZANESTATUS+" FROM " + TABLE_DARAMADRUZANE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                status.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return status;
+    }
+    public ArrayList<DaramadRuzane> getAllDaramadByStatus(String status) {
+        ArrayList<DaramadRuzane> daramadRuzanes = new ArrayList<DaramadRuzane>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_DARAMADRUZANE + " WHERE "+KEY_DARAMADRUZANEISBAYGANI+"='true' AND "+KEY_DARAMADRUZANESTATUS + "='"+status+"'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DaramadRuzane daramadRuzane= new DaramadRuzane(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
+                daramadRuzanes.add(daramadRuzane);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return daramadRuzanes;
     }
 }

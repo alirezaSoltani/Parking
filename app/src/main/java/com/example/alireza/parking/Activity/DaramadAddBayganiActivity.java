@@ -8,36 +8,36 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.alireza.parking.DataBase.DataBaseHandler;
+import com.example.alireza.parking.Model.DaramadRuzane;
 import com.example.alireza.parking.Model.Gharardad;
-import com.example.alireza.parking.Model.VorudKhoruj;
 import com.example.alireza.parking.R;
 
 import java.util.ArrayList;
 
-public class VorudKhorujAddBayganiActivity extends AppCompatActivity {
+public class DaramadAddBayganiActivity extends AppCompatActivity {
     EditText status;
     Button save;
     DataBaseHandler handler;
-    ArrayList<VorudKhoruj> list;
+    ArrayList<DaramadRuzane> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vorud_khoruj_add_baygani);
+        setContentView(R.layout.activity_daramad_add_baygani);
         init();
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handler.BayganiVorudKhoruj(list,status.getText().toString());
-                Toast.makeText(VorudKhorujAddBayganiActivity.this, "ورود و خروج ها با موفقیت بایگانی شدند", Toast.LENGTH_SHORT).show();
+                handler.BayganiDaramad(list,status.getText().toString());
+                Toast.makeText(DaramadAddBayganiActivity.this, "قرارداد ها با موفقیت بایگانی شدند", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
     }
-
     private void init() {
-        status = (EditText)findViewById(R.id.vorud_khoruj_baygani_status);
-        save = (Button)findViewById(R.id.vorud_khoruj_baygani_save_btn);
-        handler = new DataBaseHandler(VorudKhorujAddBayganiActivity.this);
-        list = handler.getAllVorudKhorujNBaygani();
+        status = (EditText)findViewById(R.id.daramad_baygani_status);
+        save = (Button)findViewById(R.id.daramad_baygani_save_btn);
+        handler = new DataBaseHandler(DaramadAddBayganiActivity.this);
+        list = handler.getAllDaramadRuzaneNBaygani();
+
     }
 }

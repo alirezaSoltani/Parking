@@ -35,7 +35,11 @@
             android:name=".Activity.VorudKhorujAddBayganiActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Activity.VorudKhorujStatusActivity" />
-        <activity android:name=".Activity.VorudKhorujByStatusActivity"></activity>
+        <activity android:name=".Activity.VorudKhorujByStatusActivity" />
+        <activity android:name=".Activity.DaramadAddBayganiActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Activity.DaramadBayganiStatusActivity" />
+        <activity android:name=".Activity.DaramadByStatusActivity"></activity>
     </application>
 
 </manifest>

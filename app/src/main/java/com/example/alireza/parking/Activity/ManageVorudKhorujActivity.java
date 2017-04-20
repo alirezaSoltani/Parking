@@ -35,7 +35,7 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
     private void init() {
         list = new ArrayList<>();
         handler = new DataBaseHandler(ManageVorudKhorujActivity.this);
-        list.addAll(handler.getAllVorudKhoruj());
+        list.addAll(handler.getAllVorudKhorujNBaygani());
         listView = (ListView)findViewById(R.id.vorud_khoruj_list_view);
         adapter = new VorudKhorujListViewAdapter(ManageVorudKhorujActivity.this,list);
         listView.setAdapter(adapter);
@@ -59,7 +59,7 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
                         handler.deleteVorudKhorujByID(list.get(position).getId());
                         Toast.makeText(ManageVorudKhorujActivity.this, "قرار داد با موفقیت حذف شد", Toast.LENGTH_SHORT).show();
                         list.clear();
-                        list.addAll(handler.getAllVorudKhoruj());
+                        list.addAll(handler.getAllVorudKhorujNBaygani());
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -79,7 +79,7 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         list.clear();
-        list.addAll(handler.getAllVorudKhoruj());
+        list.addAll(handler.getAllVorudKhorujNBaygani());
         adapter.notifyDataSetChanged();
         super.onResume();
     }
@@ -109,7 +109,7 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else if (id==R.id.vorud_khoruj_show_baygani_menu){
-            Intent intent = new Intent(ManageVorudKhorujActivity.this,VorudKhorujAddBayganiActivity.class);
+            Intent intent = new Intent(ManageVorudKhorujActivity.this,VorudKhorujStatusActivity.class);
             startActivity(intent);
         }
 

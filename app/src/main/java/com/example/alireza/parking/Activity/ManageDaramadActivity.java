@@ -49,7 +49,7 @@ public class ManageDaramadActivity extends AppCompatActivity {
                         handler.deleteDaramadRuzaneByID(list.get(position).getId());
                         Toast.makeText(ManageDaramadActivity.this, "مورد با موفقیت حذف شد", Toast.LENGTH_SHORT).show();
                         list.clear();
-                        list.addAll(handler.getAllDaramadRuzane());
+                        list.addAll(handler.getAllDaramadRuzaneNBaygani());
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -70,7 +70,7 @@ public class ManageDaramadActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.manage_daramad_list_view);
         list = new ArrayList<>();
         handler = new DataBaseHandler(ManageDaramadActivity.this);
-        list.addAll(handler.getAllDaramadRuzane());
+        list.addAll(handler.getAllDaramadRuzaneNBaygani());
         adapter = new DaramadRuzaneListViewAdapter(ManageDaramadActivity.this,list);
         listView.setAdapter(adapter);
     }
@@ -92,7 +92,14 @@ public class ManageDaramadActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
-
+        else if (id==R.id.daramad_ruzane_set_baygani_menu){
+            Intent intent = new Intent(ManageDaramadActivity.this,DaramadAddBayganiActivity.class);
+            startActivity(intent);
+        }
+        else if (id==R.id.daramad_ruzane_show_baygani_menu){
+            Intent intent = new Intent(ManageDaramadActivity.this,DaramadBayganiStatusActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -100,7 +107,7 @@ public class ManageDaramadActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         list.clear();
-        list.addAll(handler.getAllDaramadRuzane());
+        list.addAll(handler.getAllDaramadRuzaneNBaygani());
         adapter.notifyDataSetChanged();
     }
 }

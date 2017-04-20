@@ -3,6 +3,16 @@
     <item
         android:title="add"
         android:id="@+id/daramad_ruzane_add_menu"
-        android:showAsAction="always"
+
+        ></item>
+    <item
+        android:title="set baygani"
+        android:id="@+id/daramad_ruzane_set_baygani_menu"
+
+        ></item>
+    <item
+        android:title="show baygani"
+        android:id="@+id/daramad_ruzane_show_baygani_menu"
+
         ></item>
 </menu>
