@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alireza.parking">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,10 +39,12 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Activity.VorudKhorujStatusActivity" />
         <activity android:name=".Activity.VorudKhorujByStatusActivity" />
-        <activity android:name=".Activity.DaramadAddBayganiActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity
+            android:name=".Activity.DaramadAddBayganiActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Activity.DaramadBayganiStatusActivity" />
-        <activity android:name=".Activity.DaramadByStatusActivity"></activity>
+        <activity android:name=".Activity.DaramadByStatusActivity" />
+        <activity android:name=".Activity.ReportGharardadActivity"></activity>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <TextView
+            android:onClick="screenShot"
             android:id="@+id/main_sob"
             android:layout_margin="5dp"
             android:textSize="20dp"
