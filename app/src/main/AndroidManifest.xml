@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.alireza.parking">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Activity.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.ManageVorudKhorujActivity" />
+        <activity android:name=".Activity.NewGharadadActivity" />
+        <activity android:name=".Activity.ManageGharardadActivity" />
+        <activity android:name=".Activity.ManageDaramadActivity" />
+        <activity android:name=".Activity.GharardadDetailsActivity" />
+        <activity android:name=".Activity.NewVorudKhorujActivity" />
+        <activity android:name=".Activity.VorudKhorujDetailsActivity" />
+        <activity android:name=".Activity.NewDaramadActivity" />
+        <activity android:name=".Activity.DaramadRuzaneDetailsActivity" />
+        <activity
+            android:name=".Activity.GharadadAddBayganiActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
+        <activity android:name=".Activity.GharardadBayganiStatusActivity" />
+        <activity android:name=".Activity.GharadadByStatusActivity" />
+        <activity
+            android:name=".Activity.VorudKhorujAddBayganiActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
+        <activity android:name=".Activity.VorudKhorujStatusActivity" />
+        <activity android:name=".Activity.VorudKhorujByStatusActivity"></activity>
+    </application>
+
+</manifest>

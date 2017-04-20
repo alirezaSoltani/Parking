@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_new_vorud_khoruj"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.alireza.parking.Activity.NewVorudKhorujActivity">
+
+    <RadioGroup
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:layout_margin="10dp"
+            android:text="صبح"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_vorud_khoruj_sob"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:layout_margin="10dp"
+            android:text="بعد از ظهر"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_vorud_khoruj_asr"
+            android:layout_weight="1"
+            android:checked="true" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/new_vorud_khoruj_shoamre_khodro"
+        android:hint="shomare khodro"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/new_vorud_khoruj_saat_vorud"
+        android:hint="saat vorud"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/new_vorud_khoruj_saat_khoruj"
+        android:hint="saat khoruj"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/new_vorud_khoruj_date"
+        android:hint="tarikh"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/new_vorud_khoruj_mablagh"
+        android:hint="mablagh"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/new_vorud_khoruj_des"
+        android:hint="des"
+        android:singleLine="false"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_vorud_khoruj_save"
+        android:text="save"/>
+</LinearLayout>

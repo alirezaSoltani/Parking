@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#e9e8d3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:layout_margin="15dp"
+        android:id="@+id/gharardad_list_view_item_name"/>
+    <TextView
+        android:textSize="20dp"
+        android:layout_margin="15dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pelak"
+        android:id="@+id/gharardad_list_view_item_pelak"/>
+    <TextView
+        android:text="mablagh"
+        android:textSize="20dp"
+        android:layout_margin="15dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gharardad_list_view_item_mablagh"/>
+</LinearLayout>

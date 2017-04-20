@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/gharardad_baygani_menu"
+        android:enabled="true"
+        android:title="set baygani" />
+    <item android:id="@+id/gharardad_show_baygani_menu"
+        android:enabled="true"
+        android:title="show baygani" />
+</menu>
