@@ -6,37 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A2DED0"
     tools:context="com.example.alireza.parking.Activity.MainActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="0.75">
         <TextView
-            android:onClick="screenShot"
+
             android:id="@+id/main_sob"
             android:layout_margin="5dp"
             android:textSize="20dp"
-            android:textColor="@color/white"
+            android:textColor="#000"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="#4949b0"
+            android:background="@drawable/main_blue"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="درآمد صبح :  \nدرآمدی ثبت نشده است"/>
         <TextView
             android:id="@+id/main_asr"
             android:layout_margin="5dp"
             android:textSize="20dp"
-            android:textColor="@color/white"
+            android:textColor="#000"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="#160b7a"
+            android:background="@drawable/main_yellow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="درآمد بعد از ظهر : \n درآمدی ثبت نشده است"/>
     </LinearLayout>
     <LinearLayout
@@ -48,12 +47,11 @@
             android:layout_margin="5dp"
             android:textSize="20dp"
             android:padding="20dp"
-            android:drawableTop="@android:drawable/stat_sys_upload_done"
-            android:textColor="@color/white"
+            android:textColor="#000"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"
-            android:background="#EC644B"
+            android:background="@drawable/main_orange"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="مدیریت ورود و خروج"/>
@@ -63,11 +61,10 @@
             android:textSize="20dp"
             android:layout_margin="5dp"
             android:padding="20dp"
-            android:drawableTop="@android:drawable/ic_menu_add"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="#000"
             android:text="صدور قرارداد"
-            android:background="#DB0A5B"
+            android:background="@drawable/main_red"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></TextView>
@@ -81,11 +78,10 @@
             android:textSize="20dp"
             android:layout_margin="5dp"
             android:padding="20dp"
-            android:drawableTop="@android:drawable/ic_menu_info_details"
-            android:textColor="@color/white"
+            android:textColor="#000"
             android:text="مدیریت قرارداد"
             android:gravity="center"
-            android:background="#BF55EC"
+            android:background="@drawable/main_violet"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></TextView>
@@ -94,11 +90,10 @@
             android:textSize="20dp"
             android:layout_margin="5dp"
             android:padding="20dp"
-            android:drawableTop="@android:drawable/stat_sys_upload_done"
             android:text="مدیریت درآمد روزانه"
-            android:textColor="@color/white"
+            android:textColor="#000"
             android:gravity="center"
-            android:background="#26A65B"
+            android:background="@drawable/main_green"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></TextView>

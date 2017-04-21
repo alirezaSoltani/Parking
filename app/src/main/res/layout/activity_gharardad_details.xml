@@ -12,24 +12,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alireza.parking.Activity.GharardadDetailsActivity">
     <TextView
+        android:textColor="#ff0000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="name"
         android:id="@+id/gharardad_details_name"/>
     <TextView
+        android:textColor="#26974e"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="tel"
         android:id="@+id/gharardad_details_tel"/>
     <TextView
+        android:textColor="#6388d1"
         android:text="car type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/gharardad_details_car_type"/>
     <TextView
+        android:textColor="#b85933"
         android:text="pelak"
         android:textSize="20dp"
         android:layout_width="match_parent"
@@ -37,6 +41,7 @@
         android:id="@+id/gharardad_details_pelak"
         />
     <TextView
+        android:textColor="#ff00f2"
         android:text="mablagh"
         android:textSize="20dp"
         android:layout_width="match_parent"
@@ -44,6 +49,7 @@
         android:id="@+id/gharardad_details_mablagh"
     />
     <TextView
+        android:textColor="#0d00ff"
         android:text="des"
         android:textSize="20dp"
         android:layout_width="match_parent"
@@ -51,8 +57,13 @@
         android:id="@+id/gharardad_details_des"
         />
     <Button
-        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_height="wrap_content"
-        android:text="report"
+        android:text="ارسال قرارداد"
         android:id="@+id/gharardad_report_btn"/>
 </LinearLayout>

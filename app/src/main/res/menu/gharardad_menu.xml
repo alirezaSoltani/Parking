@@ -8,4 +8,7 @@
     <item android:id="@+id/gharardad_show_baygani_menu"
         android:enabled="true"
         android:title="show baygani" />
+    <item android:id="@+id/gharardad_report_baygani_menu"
+        android:enabled="true"
+        android:title="report baygani" />
 </menu>

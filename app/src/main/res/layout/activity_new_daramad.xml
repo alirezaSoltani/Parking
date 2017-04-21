@@ -13,6 +13,7 @@
     tools:context="com.example.alireza.parking.Activity.NewDaramadActivity">
 
     <RadioGroup
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -41,31 +42,44 @@
     </RadioGroup>
 
     <Spinner
+        android:layout_marginTop="5dp"
         android:entries="@array/week_arrays"
-
+        android:background="@drawable/edit_text_shape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         />
     <TextView
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text_shape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/daramad_date"
-        android:text="date"/>
+        android:text="تاریخ"/>
     <EditText
+        android:inputType="number"
+        android:background="@drawable/edit_text_shape"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="mablagh"
+        android:hint="مبلغ"
         android:id="@+id/daramad_mablgha"/>
     <EditText
+        android:background="@drawable/edit_text_shape"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="des"
+        android:hint="توضیحات"
         android:singleLine="false"
         android:id="@+id/daramad_des"/>
     <Button
-        android:layout_width="match_parent"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/daramad_save"
-        android:text="save"/>
+        android:text="ذخیره کردن"/>
 </LinearLayout>

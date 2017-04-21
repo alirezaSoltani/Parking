@@ -12,12 +12,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alireza.parking.Activity.VorudKhorujAddBayganiActivity">
     <EditText
+        android:background="@drawable/edit_text_shape"
+        android:hint="عنوان"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/vorud_khoruj_baygani_status"/>
     <Button
-        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="save"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="ذخیره کردن"
         android:id="@+id/vorud_khoruj_baygani_save_btn"/>
 </LinearLayout>

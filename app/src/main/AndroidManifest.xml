@@ -44,7 +44,8 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Activity.DaramadBayganiStatusActivity" />
         <activity android:name=".Activity.DaramadByStatusActivity" />
-        <activity android:name=".Activity.ReportGharardadActivity"></activity>
+        <activity android:name=".Activity.ReportGharardadActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -32,8 +33,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     TextView daramad, gharardad, vorudkhoruj, newGharadad, sob1, asr;
-    Bitmap mbitmap;
-
+    Typeface font;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,13 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        this.sob1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                takeScreenshot();
-
-            }
-        });
 
     }
 
@@ -109,56 +102,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        //
+        font = Typeface.createFromAsset(this.getAssets(), "fonts/byekan+.ttf");
         daramad = (TextView) findViewById(R.id.manage_daramad_txt);
         gharardad = (TextView) findViewById(R.id.manage_gharardad_txt);
         vorudkhoruj = (TextView) findViewById(R.id.manage_vorud_khoruj_txt);
         newGharadad = (TextView) findViewById(R.id.new_gharardad_txt);
         sob1 = (TextView) findViewById(R.id.main_sob);
         asr = (TextView) findViewById(R.id.main_asr);
+        daramad.setTypeface(font);
+        gharardad.setTypeface(font);
+        vorudkhoruj.setTypeface(font);
+        newGharadad.setTypeface(font);
+        sob1.setTypeface(font);
+        asr.setTypeface(font);
+
     }
 
-    private void takeScreenshot() {
-        Date now = new Date();
-        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
 
-        try {
-            // image naming and path  to include sd card  appending name you choose for file
-            String mPath = Environment.getExternalStorageDirectory().toString() + "/" + now + ".jpg";
-
-            // create bitmap screen capture
-            View v1 = getWindow().getDecorView().getRootView();
-            v1.setDrawingCacheEnabled(true);
-            Bitmap bitmap = Bitmap.createBitmap(v1.getDrawingCache());
-            v1.setDrawingCacheEnabled(false);
-
-            File imageFile = new File(mPath);
-
-            FileOutputStream outputStream = new FileOutputStream(imageFile);
-            int quality = 100;
-            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
-            outputStream.flush();
-            outputStream.close();
-
-            shareImage(imageFile);
-        } catch (Throwable e) {
-            // Several error may come out with file handling or OOM
-            e.printStackTrace();
-        }
-    }
-    private void shareImage(File file){
-        Uri uri = Uri.fromFile(file);
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent.setType("image/*");
-
-        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
-        intent.putExtra(android.content.Intent.EXTRA_TEXT, "");
-        intent.putExtra(Intent.EXTRA_STREAM, uri);
-        try {
-            startActivity(Intent.createChooser(intent, "Share Screenshot"));
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(MainActivity.this, "No App Available", Toast.LENGTH_SHORT).show();
-        }
-    }
 }
 

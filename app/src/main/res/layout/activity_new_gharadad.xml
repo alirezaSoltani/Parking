@@ -12,38 +12,56 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alireza.parking.Activity.NewGharadadActivity">
     <EditText
-        android:hint="name"
+        android:background="@drawable/edit_text_shape"
+        android:hint="نام و نام خانوادگی"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_name"/>
     <EditText
-        android:hint="tel"
+        android:inputType="phone"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="تلفن"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_tel"/>
     <EditText
-        android:hint="car type"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="نوع ماشین"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_car_type"/>
     <EditText
-        android:hint="pelak"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="پلاک"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_pelak"/>
     <EditText
-        android:hint="mablagh"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text_shape"
+        android:hint="مبلغ"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_mablagh"/>
     <EditText
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text_shape"
         android:singleLine="false"
-        android:hint="des"
+        android:hint="توضیحات"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_des"/>
     <Button
-        android:text="save"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_shape"
+        android:text="ذخیره کردن"
+        android:layout_gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/new_gharardad_save"/>
