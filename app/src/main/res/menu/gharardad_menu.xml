@@ -4,11 +4,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/gharardad_baygani_menu"
         android:enabled="true"
-        android:title="set baygani" />
+        android:title="بایگانی کردن قرارداد ها" />
     <item android:id="@+id/gharardad_show_baygani_menu"
         android:enabled="true"
-        android:title="show baygani" />
+        android:title="نمایش اطلاعات بایگانی شده" />
     <item android:id="@+id/gharardad_report_baygani_menu"
         android:enabled="true"
-        android:title="report baygani" />
+        android:title="تهیه گزارش از قرار داد ها" />
 </menu>

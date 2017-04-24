@@ -56,9 +56,9 @@ public class DaramadRuzaneListViewAdapter extends BaseAdapter {
             rowView.setTag(viewHolder);
         }
         DaramadRuzaneListViewAdapter.ViewHolder viewHolder=(DaramadRuzaneListViewAdapter.ViewHolder)rowView.getTag();
-        viewHolder.Name.setText(list.get(position).getDate());
-        viewHolder.Pelak.setText(list.get(position).getMablagh());
-        viewHolder.Mablagh.setText(list.get(position).getShift());
+        viewHolder.Name.setText("تاریخ : "+list.get(position).getDate());
+        viewHolder.Pelak.setText("مبلغ : "+list.get(position).getMablagh());
+        viewHolder.Mablagh.setText("شیفت : "+list.get(position).getShift());
         return rowView;
     }
 }

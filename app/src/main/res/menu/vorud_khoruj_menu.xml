@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:title="add"
+        android:title="اضافه کردن"
         android:id="@+id/vorud_khoruj_add_menu"
         android:icon="@android:drawable/ic_menu_add"
         android:orderInCategory="100"
@@ -10,12 +10,12 @@
         />
 
     <item
-        android:title="set baygani"
+        android:title="بایگانی کردن ورود و خروج ها"
         android:id="@+id/vorud_khoruj_set_baygani_menu"
         android:icon="@android:drawable/ic_menu_add"
         android:orderInCategory="100"/>
     <item
-        android:title="show baygani"
+        android:title="نمایش اطلاعات بایگانی شده"
         android:id="@+id/vorud_khoruj_show_baygani_menu"
         android:icon="@android:drawable/ic_menu_add"
         android:orderInCategory="100"/>

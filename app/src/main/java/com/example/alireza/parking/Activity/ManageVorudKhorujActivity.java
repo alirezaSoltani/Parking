@@ -105,8 +105,13 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
             return true;
         }
         else if (id==R.id.vorud_khoruj_set_baygani_menu){
-            Intent intent = new Intent(ManageVorudKhorujActivity.this,VorudKhorujAddBayganiActivity.class);
-            startActivity(intent);
+            if (list.size()==0){
+                Toast.makeText(this, "ورود و خروجی برای بایگانی کردن ثبت نشده است", Toast.LENGTH_SHORT).show();
+            }else {
+                Intent intent = new Intent(ManageVorudKhorujActivity.this,VorudKhorujAddBayganiActivity.class);
+                startActivity(intent);
+            }
+
         }
         else if (id==R.id.vorud_khoruj_show_baygani_menu){
             Intent intent = new Intent(ManageVorudKhorujActivity.this,VorudKhorujStatusActivity.class);

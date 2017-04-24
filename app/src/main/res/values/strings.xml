@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Parking</string>
+    <string name="app_name">مدیریت پارکینگ</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

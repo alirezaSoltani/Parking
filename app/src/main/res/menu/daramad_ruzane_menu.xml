@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="add"
+        android:title="اضافه کردن"
         android:id="@+id/daramad_ruzane_add_menu"
 
         ></item>
     <item
-        android:title="set baygani"
+        android:title="بایگانی کردن درآمد ها"
         android:id="@+id/daramad_ruzane_set_baygani_menu"
 
         ></item>
     <item
-        android:title="show baygani"
+        android:title="نمایش اطلاعات بایگانی شده"
         android:id="@+id/daramad_ruzane_show_baygani_menu"
 
         ></item>

@@ -12,30 +12,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alireza.parking.Activity.DaramadRuzaneDetailsActivity">
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#ff0000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/daramad_ruzane_details_shift"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#26974e"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/daramad_ruzane_details_day"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#6388d1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/daramad_ruzane_details_date"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#b85933"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/daramad_ruzane_details_mablagh"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#ff00f2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

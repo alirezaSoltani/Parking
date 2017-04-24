@@ -51,7 +51,7 @@ public class NewDaramadActivity extends AppCompatActivity implements com.mohamad
             @Override
             public void onClick(View v) {
                 String shift;
-                if (sob.isSelected()){
+                if (sob.isChecked()==true){
                     shift = "صبح";
                 }else{
                     shift="بعد از ظهر";
@@ -59,14 +59,6 @@ public class NewDaramadActivity extends AppCompatActivity implements com.mohamad
                 DaramadRuzane daramadRuzane = new DaramadRuzane(day.getSelectedItem().toString(),date.getText().toString(),mablagh.getText().toString(),des.getText().toString(),shift , "false" ,"");
                 handler.insertDaramadRuzane(daramadRuzane);
                 Toast.makeText(NewDaramadActivity.this,  "اطلاعات با موفقیت ذخیره شد", Toast.LENGTH_SHORT).show();
-                SharedPreferences preferences =  PreferenceManager.getDefaultSharedPreferences(NewDaramadActivity.this);
-                SharedPreferences.Editor editor = preferences.edit();
-                if (sob.isSelected()){
-                    editor.putString("sob",daramadRuzane.getMablagh());
-                }else{
-                    editor.putString("asr",daramadRuzane.getMablagh());
-                }
-                editor.apply();
                 finish();
             }
         });

@@ -93,16 +93,23 @@ public class ManageGharardadActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.gharardad_baygani_menu) {
-
-            Intent intent = new Intent(ManageGharardadActivity.this,GharadadAddBayganiActivity.class);
-            startActivity(intent);
+            if (list.size()==0){
+                Toast.makeText(this, "قراردادی برای بایگانی کردن ثبت نشده است", Toast.LENGTH_SHORT).show();
+            }else{
+                Intent intent = new Intent(ManageGharardadActivity.this,GharadadAddBayganiActivity.class);
+                startActivity(intent);
+            }
         }
         else if(id == R.id.gharardad_show_baygani_menu){
             Intent intent = new Intent(ManageGharardadActivity.this,GharardadBayganiStatusActivity.class);
             startActivity(intent);
         }
         else if (id == R.id.gharardad_report_baygani_menu){
-            getWholeListViewItemsToBitmap();
+            if(list.size()==0){
+                Toast.makeText(this, "قراردادی برای گزارش کردن ثبت نشده است", Toast.LENGTH_SHORT).show();
+            }else{
+                getWholeListViewItemsToBitmap();
+            }
         }
 
             return super.onOptionsItemSelected(item);

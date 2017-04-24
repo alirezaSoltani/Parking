@@ -49,16 +49,16 @@ public class VorudKhorujListViewAdapter extends BaseAdapter{
         if (rowView == null){
             LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.gharardad_list_view_item,parent , false);
-            GharardadListViewAdapter.ViewHolder viewHolder=new GharardadListViewAdapter.ViewHolder();
+            VorudKhorujListViewAdapter.ViewHolder viewHolder=new VorudKhorujListViewAdapter.ViewHolder();
             viewHolder.Name=(TextView)rowView.findViewById(R.id.gharardad_list_view_item_name);
             viewHolder.Pelak=(TextView)rowView.findViewById(R.id.gharardad_list_view_item_pelak);
             viewHolder.Mablagh=(TextView)rowView.findViewById(R.id.gharardad_list_view_item_mablagh);
             rowView.setTag(viewHolder);
         }
-        GharardadListViewAdapter.ViewHolder viewHolder=(GharardadListViewAdapter.ViewHolder)rowView.getTag();
-        viewHolder.Name.setText(list.get(position).getShomareKhodro());
-        viewHolder.Pelak.setText(list.get(position).getMablagh());
-        viewHolder.Mablagh.setText(list.get(position).getShift());
+        VorudKhorujListViewAdapter.ViewHolder viewHolder=(VorudKhorujListViewAdapter.ViewHolder)rowView.getTag();
+        viewHolder.Name.setText("شماره خودرو : "+list.get(position).getShomareKhodro());
+        viewHolder.Pelak.setText("مبلغ : "+list.get(position).getMablagh());
+        viewHolder.Mablagh.setText("شیفت : "+list.get(position).getShift());
         return rowView;
     }
 }

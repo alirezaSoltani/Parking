@@ -80,7 +80,7 @@ public class NewVorudKhorujActivity extends AppCompatActivity implements com.moh
             @Override
             public void onClick(View v) {
                 String shift;
-                if (sob.isSelected()){
+                if (sob.isChecked()){
                     shift = "صبح";
                 }else{
                     shift="بعد از ظهر";

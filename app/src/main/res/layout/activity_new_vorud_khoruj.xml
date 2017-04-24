@@ -74,6 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:inputType="number"
         android:background="@drawable/edit_text_shape"
         android:layout_marginTop="5dp"
         android:id="@+id/new_vorud_khoruj_mablagh"

@@ -55,10 +55,9 @@ public class GharardadListViewAdapter extends BaseAdapter {
             rowView.setTag(viewHolder);
         }
         ViewHolder viewHolder=(ViewHolder)rowView.getTag();
-        System.out.println("id:"+list.get(position).getId());
-        viewHolder.Name.setText(list.get(position).getName());
-        viewHolder.Pelak.setText(list.get(position).getCar_pelak());
-        viewHolder.Mablagh.setText(list.get(position).getMablagh());
+        viewHolder.Name.setText("نام و نام خانوادگی : "+list.get(position).getName());
+        viewHolder.Pelak.setText("شماره پلاک : "+list.get(position).getCar_pelak());
+        viewHolder.Mablagh.setText("مبلغ : "+list.get(position).getMablagh());
         return rowView;
     }
 }

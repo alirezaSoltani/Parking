@@ -12,6 +12,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alireza.parking.Activity.VorudKhorujDetailsActivity">
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
+
         android:textColor="#ff0000"
         android:text="shift"
         android:id="@+id/vorud_khoruj_details_shift"
@@ -19,6 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#26974e"
         android:text="shomare khodro"
         android:id="@+id/vorud_khoruj_details_shomare_khodro"
@@ -26,24 +31,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:textColor="#6388d1"
         android:text="saat vorud"
         android:id="@+id/vorud_khoruj_details_saat_vorud"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:textColor="#b85933"
         android:text="saat khoruj"
         android:id="@+id/vorud_khoruj_details_saat_khoruj"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:textColor="#ff00f2"
         android:text="mablagh"
         android:id="@+id/vorud_khoruj_details_mablagh"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:textColor="#0d00ff"
         android:text="des"
         android:id="@+id/vorud_khoruj_details_des"
         android:textSize="20dp"

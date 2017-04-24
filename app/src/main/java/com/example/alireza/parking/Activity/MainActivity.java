@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alireza.parking.DataBase.DataBaseHandler;
+import com.example.alireza.parking.Model.DaramadRuzane;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.R;
 
@@ -29,11 +30,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     TextView daramad, gharardad, vorudkhoruj, newGharadad, sob1, asr;
     Typeface font;
+    DataBaseHandler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +50,34 @@ public class MainActivity extends AppCompatActivity {
 //
 //            dataBaseHandler.insertGharardad(g);
 //        }
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        final String sob = preferences.getString("sob", null);
-        String asr = preferences.getString("asr", null);
-        if (sob != null) {
-            this.sob1.setText("درآمد صبح :" + "\n" + sob);
+        ArrayList<DaramadRuzane> arrayList = new ArrayList<>();
+        arrayList.addAll(handler.getAllDaramadRuzaneNBaygani());
+        for (int i = arrayList.size()-1;i>=0;i--){
+
+            if (arrayList.get(i).getShift().equals("صبح")) {
+
+                sob1.setText("آخرین درآمد صبح :" + "\n" + arrayList.get(i).getMablagh());
+                break;
+            }
         }
-        if (asr != null) {
-            this.asr.setText("درآمد بعد از ظهر :" + "\n" + asr);
+        for (int i = arrayList.size()-1;i>=0;i--){
+            System.out.println(arrayList.get(i).getShift());
+            if (arrayList.get(i).getShift().equals("بعد از ظهر")) {
+                System.out.println("yes");
+
+                this.asr.setText("آخرین درآمد بعد از ظهر :" + "\n" + arrayList.get(i).getMablagh());
+                break;
+            }
         }
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        final String sob = preferences.getString("sob", null);
+//        String asr = preferences.getString("asr", null);
+//        if (sob != null) {
+//            this.sob1.setText("درآمد صبح :" + "\n" + sob);
+//        }
+//        if (asr != null) {
+//            this.asr.setText("درآمد بعد از ظهر :" + "\n" + asr);
+//        }
         daramad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,19 +112,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String sob = preferences.getString("sob", null);
-        String asr = preferences.getString("asr", null);
-        if (sob != null) {
-            this.sob1.setText("درآمد صبح :" + "\n" + sob);
+        ArrayList<DaramadRuzane> arrayList = new ArrayList<>();
+        arrayList.addAll(handler.getAllDaramadRuzaneNBaygani());
+        for (int i = arrayList.size()-1;i>=0;i--){
+
+            if (arrayList.get(i).getShift().equals("صبح")) {
+
+                sob1.setText("آخرین درآمد صبح :" + "\n" + arrayList.get(i).getMablagh());
+                break;
+            }
         }
-        if (asr != null) {
-            this.asr.setText("درآمد بعد از ظهر :" + "\n" + asr);
+        for (int i = arrayList.size()-1;i>=0;i--){
+            System.out.println(arrayList.get(i).getShift());
+            if (arrayList.get(i).getShift().equals("بعد از ظهر")) {
+                System.out.println("yes");
+
+                this.asr.setText("آخرین درآمد بعد از ظهر :" + "\n" + arrayList.get(i).getMablagh());
+                break;
+            }
         }
     }
 
     private void init() {
         //
+        handler = new DataBaseHandler(MainActivity.this);
         font = Typeface.createFromAsset(this.getAssets(), "fonts/byekan+.ttf");
         daramad = (TextView) findViewById(R.id.manage_daramad_txt);
         gharardad = (TextView) findViewById(R.id.manage_gharardad_txt);

@@ -88,13 +88,19 @@ public class ManageDaramadActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.daramad_ruzane_add_menu) {
+
             Intent intent = new Intent(ManageDaramadActivity.this,NewDaramadActivity.class);
             startActivity(intent);
             return true;
         }
         else if (id==R.id.daramad_ruzane_set_baygani_menu){
-            Intent intent = new Intent(ManageDaramadActivity.this,DaramadAddBayganiActivity.class);
-            startActivity(intent);
+            if(list.size()==0){
+                Toast.makeText(this, "درامدی برای بایگانی کردن ثبت نشده است", Toast.LENGTH_SHORT).show();
+            }else{
+                Intent intent = new Intent(ManageDaramadActivity.this,DaramadAddBayganiActivity.class);
+                startActivity(intent);
+            }
+
         }
         else if (id==R.id.daramad_ruzane_show_baygani_menu){
             Intent intent = new Intent(ManageDaramadActivity.this,DaramadBayganiStatusActivity.class);

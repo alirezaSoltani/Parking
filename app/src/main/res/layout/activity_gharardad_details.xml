@@ -12,6 +12,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alireza.parking.Activity.GharardadDetailsActivity">
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#ff0000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +21,8 @@
         android:text="name"
         android:id="@+id/gharardad_details_name"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#26974e"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,6 +30,8 @@
         android:text="tel"
         android:id="@+id/gharardad_details_tel"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#6388d1"
         android:text="car type"
         android:layout_width="match_parent"
@@ -33,6 +39,8 @@
         android:textSize="20dp"
         android:id="@+id/gharardad_details_car_type"/>
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#b85933"
         android:text="pelak"
         android:textSize="20dp"
@@ -41,6 +49,8 @@
         android:id="@+id/gharardad_details_pelak"
         />
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#ff00f2"
         android:text="mablagh"
         android:textSize="20dp"
@@ -49,6 +59,8 @@
         android:id="@+id/gharardad_details_mablagh"
     />
     <TextView
+        android:layout_gravity="right"
+        android:gravity="right"
         android:textColor="#0d00ff"
         android:text="des"
         android:textSize="20dp"

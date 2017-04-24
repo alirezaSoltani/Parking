@@ -73,7 +73,6 @@ public class ReportGharardadActivity extends AppCompatActivity {
             bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
             outputStream.flush();
             outputStream.close();
-            Toast.makeText(this, "asdasdasdas", Toast.LENGTH_SHORT).show();
             shareImage(imageFile);
         } catch (Throwable e) {
             // Several error may come out with file handling or OOM
