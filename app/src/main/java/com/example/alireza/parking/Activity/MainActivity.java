@@ -32,11 +32,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
     TextView daramad, gharardad, vorudkhoruj, newGharadad, sob1, asr;
     Typeface font;
     DataBaseHandler handler;
+    private static final int TIME_INTERVAL = 500; // # milliseconds, desired time passed between two back presses.
+    private long mBackPressed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +135,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    @Override
+    public void onBackPressed()
+    {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
+        {
+            super.onBackPressed();
+            return;
+        }
+        else { Toast.makeText(getBaseContext(), "برای خروج دو بار ضربه بزنید", Toast.LENGTH_SHORT).show(); }
 
+        mBackPressed = System.currentTimeMillis();
+    }
     private void init() {
         //
         handler = new DataBaseHandler(MainActivity.this);
