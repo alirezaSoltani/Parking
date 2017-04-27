@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
-        else { Toast.makeText(getBaseContext(), "برای خروج دو بار ضربه بزنید", Toast.LENGTH_SHORT).show(); }
+        else { Toast.makeText(getBaseContext(), "برای خروج دو بار ضربه بزنید", 1000).show(); }
 
         mBackPressed = System.currentTimeMillis();
     }

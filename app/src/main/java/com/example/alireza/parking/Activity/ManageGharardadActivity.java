@@ -101,8 +101,15 @@ public class ManageGharardadActivity extends AppCompatActivity {
             }
         }
         else if(id == R.id.gharardad_show_baygani_menu){
-            Intent intent = new Intent(ManageGharardadActivity.this,GharardadBayganiStatusActivity.class);
-            startActivity(intent);
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.addAll(dataBaseHandler.getAllGharardadStatusBaygani());
+            if(arrayList.size()==0){
+                Toast.makeText(this, "قرارداد بایگانی شده ای وجود ندارد", Toast.LENGTH_SHORT).show();
+            }else{
+                Intent intent = new Intent(ManageGharardadActivity.this,GharardadBayganiStatusActivity.class);
+                startActivity(intent);
+            }
+
         }
         else if (id == R.id.gharardad_report_baygani_menu){
             if(list.size()==0){
@@ -182,7 +189,6 @@ public class ManageGharardadActivity extends AppCompatActivity {
             bigbitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
             outputStream.flush();
             outputStream.close();
-            Toast.makeText(ManageGharardadActivity.this, "asdasdasdas", Toast.LENGTH_SHORT).show();
             shareImage(imageFile);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

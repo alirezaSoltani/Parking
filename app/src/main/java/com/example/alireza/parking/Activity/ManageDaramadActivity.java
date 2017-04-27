@@ -103,8 +103,15 @@ public class ManageDaramadActivity extends AppCompatActivity {
 
         }
         else if (id==R.id.daramad_ruzane_show_baygani_menu){
-            Intent intent = new Intent(ManageDaramadActivity.this,DaramadBayganiStatusActivity.class);
-            startActivity(intent);
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.addAll(handler.getAllDaramaddStatusBaygani());
+            if(arrayList.size()==0){
+                Toast.makeText(this, "درآمد بایگانی شده ای وجود ندارد", Toast.LENGTH_SHORT).show();
+            }else{
+                Intent intent = new Intent(ManageDaramadActivity.this,DaramadBayganiStatusActivity.class);
+                startActivity(intent);
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }

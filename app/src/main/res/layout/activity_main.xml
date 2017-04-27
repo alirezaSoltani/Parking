@@ -79,7 +79,7 @@
             android:layout_margin="5dp"
             android:padding="20dp"
             android:textColor="#000"
-            android:text="مدیریت قرارداد"
+            android:text="مدیریت قرارداد ماهانه"
             android:gravity="center"
             android:background="@drawable/main_violet"
             android:layout_weight="1"

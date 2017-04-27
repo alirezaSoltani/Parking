@@ -12,6 +12,7 @@
     tools:context="com.example.alireza.parking.Activity.ReportGharardadActivity">
 
     <TextView
+        android:background="@drawable/edit_text_shape"
         android:layout_gravity="center"
         android:gravity="center|right"
         android:textSize="35dp"

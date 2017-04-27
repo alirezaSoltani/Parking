@@ -34,8 +34,8 @@ public class ReportGharardadActivity extends AppCompatActivity {
         if (id != -1){
             gharardad = handler.getGharardadBySTId(id);
             reportText.setText("آقای/خانم "+gharardad.getName()+" دارنده خودروی "+gharardad.getCar_Type()+" به شماره پلاک "+gharardad.getCar_pelak()+" بلا مانع میباشد."+"\n"+" مبلغ قرارداد "+gharardad.getMablagh()+"\n"+" ریال میباشد.");
-
         }
+
     }
 
     private void init() {
@@ -76,6 +76,7 @@ public class ReportGharardadActivity extends AppCompatActivity {
             shareImage(imageFile);
         } catch (Throwable e) {
             // Several error may come out with file handling or OOM
+            Toast.makeText(this, e.getMessage()+"", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
