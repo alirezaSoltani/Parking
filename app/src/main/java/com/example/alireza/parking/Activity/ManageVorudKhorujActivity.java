@@ -9,14 +9,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.alireza.parking.Adapter.VorudKhorujListViewAdapter;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.VorudKhoruj;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 import java.util.ArrayList;
 
@@ -25,17 +29,44 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
     DataBaseHandler handler;
     VorudKhorujListViewAdapter adapter;
     ListView listView;
+    RadioGroup group;
+    RadioButton r_sob,r_asr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_vorud_khoruj);
         init();
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                list.clear();
+                list.addAll(handler.getAllVorudKhorujNBaygani());
+                for(int i=list.size()-1;i>=0;i--){
+                    if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                        list.remove(i);
+                    }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                        list.remove(i);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void init() {
         list = new ArrayList<>();
         handler = new DataBaseHandler(ManageVorudKhorujActivity.this);
         list.addAll(handler.getAllVorudKhorujNBaygani());
+        r_sob = (RadioButton)findViewById(R.id.vorud_khoruj_list_sob);
+        r_asr = (RadioButton)findViewById(R.id.vorud_khoruj_list_asr);
+        group = (RadioGroup)findViewById(R.id.radioGroup_vorud_khoruj);
+        for(int i=list.size()-1;i>=0;i--){
+            if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                list.remove(i);
+            }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                list.remove(i);
+            }
+        }
         listView = (ListView)findViewById(R.id.vorud_khoruj_list_view);
         adapter = new VorudKhorujListViewAdapter(ManageVorudKhorujActivity.this,list);
         listView.setAdapter(adapter);
@@ -60,6 +91,13 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
                         Toast.makeText(ManageVorudKhorujActivity.this, "قرار داد با موفقیت حذف شد", Toast.LENGTH_SHORT).show();
                         list.clear();
                         list.addAll(handler.getAllVorudKhorujNBaygani());
+                        for(int i=list.size()-1;i>=0;i--){
+                            if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                                list.remove(i);
+                            }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                                list.remove(i);
+                            }
+                        }
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -73,6 +111,9 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
                 return false;
             }
         });
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
 
     }
 
@@ -80,6 +121,13 @@ public class ManageVorudKhorujActivity extends AppCompatActivity {
     protected void onResume() {
         list.clear();
         list.addAll(handler.getAllVorudKhorujNBaygani());
+        for(int i=list.size()-1;i>=0;i--){
+            if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                list.remove(i);
+            }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                list.remove(i);
+            }
+        }
         adapter.notifyDataSetChanged();
         super.onResume();
     }

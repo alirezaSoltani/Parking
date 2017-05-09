@@ -1,6 +1,7 @@
 package com.example.alireza.parking.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +21,10 @@ import java.util.ArrayList;
 public class DaramadRuzaneListViewAdapter extends BaseAdapter {
     Context context;
     ArrayList<DaramadRuzane> list;
+    Typeface font;
     public DaramadRuzaneListViewAdapter(Context contex , ArrayList<DaramadRuzane> list){
         this.context = contex;
+        this.list = new ArrayList<>();
         this.list = list;
     }
     @Override
@@ -45,6 +48,7 @@ public class DaramadRuzaneListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        font = Typeface.createFromAsset(context.getAssets(), "fonts/byekan+.ttf");
         View rowView=convertView;
         if (rowView == null){
             LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -56,9 +60,12 @@ public class DaramadRuzaneListViewAdapter extends BaseAdapter {
             rowView.setTag(viewHolder);
         }
         DaramadRuzaneListViewAdapter.ViewHolder viewHolder=(DaramadRuzaneListViewAdapter.ViewHolder)rowView.getTag();
-        viewHolder.Name.setText("تاریخ : "+list.get(position).getDate());
-        viewHolder.Pelak.setText("مبلغ : "+list.get(position).getMablagh());
-        viewHolder.Mablagh.setText("شیفت : "+list.get(position).getShift());
+        viewHolder.Name.setText(list.get(position).getDate());
+        viewHolder.Name.setTypeface(font);
+        viewHolder.Pelak.setText(list.get(position).getMablagh());
+        viewHolder.Pelak.setTypeface(font);
+        viewHolder.Mablagh.setText(list.get(position).getDay());
+        viewHolder.Mablagh.setTypeface(font);
         return rowView;
     }
 }

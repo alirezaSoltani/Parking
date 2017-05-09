@@ -1,6 +1,7 @@
 package com.example.alireza.parking.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class GharardadListViewAdapter extends BaseAdapter {
     Context context;
     ArrayList<Gharardad> list;
+    Typeface font;
     public GharardadListViewAdapter(Context contex , ArrayList<Gharardad> list){
         this.context = contex;
         this.list = list;
@@ -44,6 +46,7 @@ public class GharardadListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        font = Typeface.createFromAsset(context.getAssets(), "fonts/byekan+.ttf");
         View rowView=convertView;
         if (rowView == null){
             LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -55,9 +58,12 @@ public class GharardadListViewAdapter extends BaseAdapter {
             rowView.setTag(viewHolder);
         }
         ViewHolder viewHolder=(ViewHolder)rowView.getTag();
-        viewHolder.Name.setText("نام و نام خانوادگی : "+list.get(position).getName());
-        viewHolder.Pelak.setText("شماره پلاک : "+list.get(position).getCar_pelak());
-        viewHolder.Mablagh.setText("مبلغ : "+list.get(position).getMablagh());
+        viewHolder.Name.setText(list.get(position).getName());
+//        viewHolder.Name.setTypeface(font);
+        viewHolder.Pelak.setText(list.get(position).getTel());
+//        viewHolder.Pelak.setTypeface(font);
+        viewHolder.Mablagh.setText(list.get(position).getMablagh());
+//        viewHolder.Mablagh.setTypeface(font);
         return rowView;
     }
 }

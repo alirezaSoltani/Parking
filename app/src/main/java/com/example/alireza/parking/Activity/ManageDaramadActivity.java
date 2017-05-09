@@ -9,14 +9,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.alireza.parking.Adapter.DaramadRuzaneListViewAdapter;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.DaramadRuzane;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 import java.util.ArrayList;
 
@@ -25,17 +29,37 @@ public class ManageDaramadActivity extends AppCompatActivity {
     ArrayList<DaramadRuzane> list;
     DaramadRuzaneListViewAdapter adapter;
     DataBaseHandler handler;
+    RadioGroup group;
+    RadioButton r_sob,r_asr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_daramad);
         init();
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ManageDaramadActivity.this,DaramadRuzaneDetailsActivity.class);
                 intent.putExtra("id",list.get(position).getId());
                 startActivity(intent);
+            }
+        });
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                list.clear();
+                list.addAll(handler.getAllDaramadRuzaneNBaygani());
+                for(int i=list.size()-1;i>=0;i--){
+                    if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                        list.remove(i);
+                    }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                        list.remove(i);
+                    }
+                }
+
+
+                adapter.notifyDataSetChanged();
             }
         });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -50,6 +74,13 @@ public class ManageDaramadActivity extends AppCompatActivity {
                         Toast.makeText(ManageDaramadActivity.this, "مورد با موفقیت حذف شد", Toast.LENGTH_SHORT).show();
                         list.clear();
                         list.addAll(handler.getAllDaramadRuzaneNBaygani());
+                        for(int i=list.size()-1;i>=0;i--){
+                            if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                                list.remove(i);
+                            }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                                list.remove(i);
+                            }
+                        }
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -71,8 +102,23 @@ public class ManageDaramadActivity extends AppCompatActivity {
         list = new ArrayList<>();
         handler = new DataBaseHandler(ManageDaramadActivity.this);
         list.addAll(handler.getAllDaramadRuzaneNBaygani());
+        r_sob = (RadioButton)findViewById(R.id.daramad_list_sob);
+        r_asr = (RadioButton)findViewById(R.id.daramad_list_asr);
+        for(int i=list.size()-1;i>=0;i--){
+            if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                list.remove(i);
+            }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                list.remove(i);
+            }
+        }
         adapter = new DaramadRuzaneListViewAdapter(ManageDaramadActivity.this,list);
         listView.setAdapter(adapter);
+        group = (RadioGroup)findViewById(R.id.radioGroup_daramad);
+        r_sob = (RadioButton)findViewById(R.id.daramad_list_sob);
+        r_asr = (RadioButton)findViewById(R.id.daramad_list_asr);
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 
     @Override
@@ -121,6 +167,13 @@ public class ManageDaramadActivity extends AppCompatActivity {
         super.onResume();
         list.clear();
         list.addAll(handler.getAllDaramadRuzaneNBaygani());
+        for(int i=list.size()-1;i>=0;i--){
+            if (r_sob.isChecked()==true&&list.get(i).getShift().equals("بعد از ظهر")){
+                list.remove(i);
+            }else if(r_asr.isChecked()==true&&list.get(i).getShift().equals("صبح")) {
+                list.remove(i);
+            }
+        }
         adapter.notifyDataSetChanged();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -11,6 +12,7 @@ import com.example.alireza.parking.Adapter.GharardadListViewAdapter;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 import java.util.ArrayList;
 
@@ -47,5 +49,8 @@ public class GharadadByStatusActivity extends AppCompatActivity {
             listView = (ListView)findViewById(R.id.gharardad_list_view_by_status);
             listView.setAdapter(adapter);
         }
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 }

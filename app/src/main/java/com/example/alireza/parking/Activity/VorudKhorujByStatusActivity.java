@@ -1,9 +1,12 @@
 package com.example.alireza.parking.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -13,6 +16,7 @@ import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.Model.VorudKhoruj;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 import java.util.ArrayList;
 
@@ -27,6 +31,7 @@ public class VorudKhorujByStatusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vorud_khoruj_by_status);
         init();
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -49,5 +54,8 @@ public class VorudKhorujByStatusActivity extends AppCompatActivity {
             listView = (ListView)findViewById(R.id.Vorud_khoruj_list_view_by_status);
             listView.setAdapter(adapter);
         }
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 }

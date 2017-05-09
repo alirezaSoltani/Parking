@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     package="com.example.alireza.parking">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -44,8 +47,16 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".Activity.DaramadBayganiStatusActivity" />
         <activity android:name=".Activity.DaramadByStatusActivity" />
-        <activity android:name=".Activity.ReportGharardadActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".Activity.ReportGharardadActivity"
+            android:isolatedProcess="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activity.DaramadChangeStatusActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Activity.GharardadChangeStatusActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"/>
+        <activity android:name=".Activity.VorudKhoruhChangeStatus"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
     </application>
 
 </manifest>

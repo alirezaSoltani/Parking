@@ -3,6 +3,7 @@ package com.example.alireza.parking.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.VorudKhoruj;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.time.RadialPickerLayout;
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
@@ -122,6 +124,9 @@ public class NewVorudKhorujActivity extends AppCompatActivity implements com.moh
         }
 
         date.setText(dat[0] + "/" + dat[1] + "/" + dat[2]);
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 
     @Override

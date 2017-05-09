@@ -3,6 +3,7 @@ package com.example.alireza.parking.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 public class NewGharadadActivity extends AppCompatActivity {
     EditText Name,Tel,CarType,Pelak,Mablagh,Des;
@@ -43,6 +45,8 @@ public class NewGharadadActivity extends AppCompatActivity {
         Mablagh = (EditText)findViewById(R.id.new_gharardad_mablagh);
         Des = (EditText)findViewById(R.id.new_gharardad_des);
         save = (Button)findViewById(R.id.new_gharardad_save);
-
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 }

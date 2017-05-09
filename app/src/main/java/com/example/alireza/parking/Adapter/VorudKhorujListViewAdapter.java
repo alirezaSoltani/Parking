@@ -1,6 +1,7 @@
 package com.example.alireza.parking.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class VorudKhorujListViewAdapter extends BaseAdapter{
     Context context;
     ArrayList<VorudKhoruj> list;
+    Typeface font;
     public VorudKhorujListViewAdapter(Context contex , ArrayList<VorudKhoruj> list){
         this.context = contex;
         this.list = list;
@@ -45,6 +47,7 @@ public class VorudKhorujListViewAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        font = Typeface.createFromAsset(context.getAssets(), "fonts/byekan+.ttf");
         View rowView=convertView;
         if (rowView == null){
             LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -56,9 +59,12 @@ public class VorudKhorujListViewAdapter extends BaseAdapter{
             rowView.setTag(viewHolder);
         }
         VorudKhorujListViewAdapter.ViewHolder viewHolder=(VorudKhorujListViewAdapter.ViewHolder)rowView.getTag();
-        viewHolder.Name.setText("شماره خودرو : "+list.get(position).getShomareKhodro());
-        viewHolder.Pelak.setText("مبلغ : "+list.get(position).getMablagh());
-        viewHolder.Mablagh.setText("شیفت : "+list.get(position).getShift());
+        viewHolder.Name.setText(list.get(position).getShomareKhodro());
+        viewHolder.Name.setTypeface(font);
+        viewHolder.Pelak.setText(list.get(position).getMablagh());
+        viewHolder.Pelak.setTypeface(font);
+        viewHolder.Mablagh.setText(list.get(position).getShift());
+        viewHolder.Mablagh.setTypeface(font);
         return rowView;
     }
 }

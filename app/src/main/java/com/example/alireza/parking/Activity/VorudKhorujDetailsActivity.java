@@ -3,12 +3,14 @@ package com.example.alireza.parking.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.VorudKhoruj;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.time.RadialPickerLayout;
 
@@ -36,12 +38,15 @@ public class VorudKhorujDetailsActivity extends AppCompatActivity {
             saat_khoruj = (TextView)findViewById(R.id.vorud_khoruj_details_saat_khoruj);
             mablagh = (TextView)findViewById(R.id.vorud_khoruj_details_mablagh);
             des = (TextView)findViewById(R.id.vorud_khoruj_details_des);
-            shift.setText(vorudKhoruj.getShift());
-            shomare_khodro.setText(vorudKhoruj.getShomareKhodro());
-            saat_vorud.setText(vorudKhoruj.getSaatVorud());
-            saat_khoruj.setText(vorudKhoruj.getSaatKhoruj());
-            mablagh.setText(vorudKhoruj.getMablagh());
-            des.setText(vorudKhoruj.getDes());
+            shift.setText("شیفت : "+vorudKhoruj.getShift());
+            shomare_khodro.setText("شماره خودرو : "+vorudKhoruj.getShomareKhodro());
+            saat_vorud.setText("ساعت ورود : "+vorudKhoruj.getSaatVorud());
+            saat_khoruj.setText("ساعت خروج : "+vorudKhoruj.getSaatKhoruj());
+            mablagh.setText("مبلغ : "+vorudKhoruj.getMablagh());
+            des.setText("توضیحات : "+vorudKhoruj.getDes());
+            final ViewGroup mContainer = (ViewGroup) findViewById(
+                    android.R.id.content).getRootView();
+            new SetAppFont(this,mContainer);
         }catch (Exception e){
             Toast.makeText(this, e.getMessage()+"", Toast.LENGTH_SHORT).show();
         }

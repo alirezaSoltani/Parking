@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 public class GharardadDetailsActivity extends AppCompatActivity {
     int id;
@@ -45,12 +47,15 @@ public class GharardadDetailsActivity extends AppCompatActivity {
         des = (TextView)findViewById(R.id.gharardad_details_des);
         gharardad = database.getGharardadBySTId(id);
         report = (Button)findViewById(R.id.gharardad_report_btn);
-        name.setText(gharardad.getName());
-        tel.setText(gharardad.getTel());
-        car_type.setText(gharardad.getCar_Type());
-        pelak.setText(gharardad.getCar_pelak());
-        mablagh.setText(gharardad.getMablagh());
-        des.setText(gharardad.getDes());
+        name.setText("نام : "+gharardad.getName());
+        tel.setText("تلفن : "+gharardad.getTel());
+        car_type.setText("نوع ماشین : "+gharardad.getCar_Type());
+        pelak.setText("شماره پلاک : "+gharardad.getCar_pelak());
+        mablagh.setText("مبلغ : "+gharardad.getMablagh());
+        des.setText("توضیحات : "+gharardad.getDes());
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 
 }

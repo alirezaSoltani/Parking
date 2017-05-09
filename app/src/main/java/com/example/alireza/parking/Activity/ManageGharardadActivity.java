@@ -15,8 +15,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ import com.example.alireza.parking.Adapter.GharardadListViewAdapter;
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,7 +42,7 @@ public class ManageGharardadActivity extends AppCompatActivity {
     GharardadListViewAdapter adapter;
     DataBaseHandler dataBaseHandler;
     ArrayList<Gharardad> list;
-
+    LinearLayout header;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,6 +118,7 @@ public class ManageGharardadActivity extends AppCompatActivity {
             if(list.size()==0){
                 Toast.makeText(this, "قراردادی برای گزارش کردن ثبت نشده است", Toast.LENGTH_SHORT).show();
             }else{
+                adapter.notifyDataSetChanged();
                 getWholeListViewItemsToBitmap();
             }
         }
@@ -128,6 +132,10 @@ public class ManageGharardadActivity extends AppCompatActivity {
         list.addAll(dataBaseHandler.getAllGharardadNBaygani());
         adapter = new GharardadListViewAdapter(ManageGharardadActivity.this,list);
         listView.setAdapter(adapter);
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
+        header = (LinearLayout)findViewById(R.id.header);
     }
 
     @Override
@@ -143,15 +151,28 @@ public class ManageGharardadActivity extends AppCompatActivity {
 
     public void getWholeListViewItemsToBitmap() {
 
-        ListView listview    = ManageGharardadActivity.listView;
-        ListAdapter adapter  = listview.getAdapter();
-        int itemscount       = adapter.getCount();
-        int allitemsheight   = 0;
-        List<Bitmap> bmps    = new ArrayList<Bitmap>();
+        ListView listview = ManageGharardadActivity.listView;
+        ListAdapter adapter = listview.getAdapter();
+        int itemscount = adapter.getCount();
+        int allitemsheight = 0;
+        List<Bitmap> bmps = new ArrayList<Bitmap>();
+        header.setDrawingCacheEnabled(true);
+        // this is the important code :)
+        // Without it the view will have a dimension of 0,0 and the bitmap will be null
 
+        header.measure(View.MeasureSpec.makeMeasureSpec(header.getWidth(), View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+
+        header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+
+        header.buildDrawingCache(true);
+        Bitmap b = Bitmap.createBitmap(header.getDrawingCache());
+        header.setDrawingCacheEnabled(false); // clear drawing cache
+        bmps.add(b);
+        allitemsheight += header.getMeasuredHeight();
         for (int i = 0; i < itemscount; i++) {
 
-            View childView      = adapter.getView(i, null, listview);
+            View childView = adapter.getView(i, null, listview);
             childView.measure(View.MeasureSpec.makeMeasureSpec(listview.getWidth(), View.MeasureSpec.EXACTLY),
                     View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
 
@@ -159,14 +180,14 @@ public class ManageGharardadActivity extends AppCompatActivity {
             childView.setDrawingCacheEnabled(true);
             childView.buildDrawingCache();
             bmps.add(childView.getDrawingCache());
-            allitemsheight+=childView.getMeasuredHeight();
+            allitemsheight += childView.getMeasuredHeight();
         }
         Date now = new Date();
         android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
 
         String mPath = Environment.getExternalStorageDirectory().toString() + "/" + now + ".jpg";
-        Bitmap bigbitmap    = Bitmap.createBitmap(listview.getMeasuredWidth(), allitemsheight, Bitmap.Config.ARGB_8888);
-        Canvas bigcanvas    = new Canvas(bigbitmap);
+        Bitmap bigbitmap = Bitmap.createBitmap(listview.getMeasuredWidth(), allitemsheight, Bitmap.Config.ARGB_8888);
+        Canvas bigcanvas = new Canvas(bigbitmap);
 
         Paint paint = new Paint();
         int iHeight = 0;
@@ -174,10 +195,10 @@ public class ManageGharardadActivity extends AppCompatActivity {
         for (int i = 0; i < bmps.size(); i++) {
             Bitmap bmp = bmps.get(i);
             bigcanvas.drawBitmap(bmp, 0, iHeight, paint);
-            iHeight+=bmp.getHeight();
+            iHeight += bmp.getHeight();
 
             bmp.recycle();
-            bmp=null;
+            bmp = null;
         }
 
         File imageFile = new File(mPath);
@@ -196,6 +217,10 @@ public class ManageGharardadActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+//    }catch (Exception e){
+//        Toast.makeText(this,e.getMessage()+"",Toast.LENGTH_LONG);
+//        }
+//    }
     private void shareImage(File file){
         Uri uri = Uri.fromFile(file);
         Intent intent = new Intent();

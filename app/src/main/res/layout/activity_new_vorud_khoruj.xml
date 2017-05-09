@@ -23,6 +23,8 @@
         android:layout_height="wrap_content" >
 
         <RadioButton
+            android:background="@drawable/edit_text_shape"
+            android:gravity="left|center"
             android:layout_margin="10dp"
             android:text="صبح"
             android:layout_width="wrap_content"
@@ -31,6 +33,8 @@
             android:layout_weight="1" />
 
         <RadioButton
+            android:background="@drawable/edit_text_shape"
+            android:gravity="left|center"
             android:layout_margin="10dp"
             android:text="بعد از ظهر"
             android:layout_width="wrap_content"
@@ -41,6 +45,7 @@
     </RadioGroup>
 
     <EditText
+        android:inputType="text"
         android:background="@drawable/edit_text_shape"
         android:layout_marginTop="5dp"
         android:id="@+id/new_vorud_khoruj_shoamre_khodro"
@@ -83,6 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:inputType="text"
         android:background="@drawable/edit_text_shape"
         android:layout_marginTop="5dp"
         android:id="@+id/new_vorud_khoruj_des"
@@ -93,6 +99,7 @@
         android:layout_height="wrap_content" />
     <Button
         android:background="@drawable/button_shape"
+
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

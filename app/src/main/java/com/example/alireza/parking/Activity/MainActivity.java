@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.DaramadRuzane;
 import com.example.alireza.parking.Model.Gharardad;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -143,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
-        else { Toast.makeText(getBaseContext(), "برای خروج دو بار ضربه بزنید", 1000).show(); }
+        else { Toast.makeText(getBaseContext(), "برای خروج دو بار ضربه بزنید", Toast.LENGTH_SHORT).show(); }
 
         mBackPressed = System.currentTimeMillis();
     }
@@ -163,7 +165,9 @@ public class MainActivity extends AppCompatActivity {
         newGharadad.setTypeface(font);
         sob1.setTypeface(font);
         asr.setTypeface(font);
-
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 
 

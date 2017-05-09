@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.alireza.parking.DataBase.DataBaseHandler;
 import com.example.alireza.parking.Model.DaramadRuzane;
 import com.example.alireza.parking.R;
+import com.example.alireza.parking.SetAppFont;
 
 public class DaramadRuzaneDetailsActivity extends AppCompatActivity {
     int id;
@@ -32,10 +34,13 @@ public class DaramadRuzaneDetailsActivity extends AppCompatActivity {
         date = (TextView)findViewById(R.id.daramad_ruzane_details_date);
         mablagh = (TextView)findViewById(R.id.daramad_ruzane_details_mablagh);
         des = (TextView)findViewById(R.id.daramad_ruzane_details_des);
-        shift.setText(daramadRuzane.getShift());
-        day.setText(daramadRuzane.getDay());
-        date.setText(daramadRuzane.getDate());
-        mablagh.setText(daramadRuzane.getMablagh());
-        des.setText(daramadRuzane.getDes());
+        shift.setText("شیفت : "+daramadRuzane.getShift());
+        day.setText("روز : "+daramadRuzane.getDay());
+        date.setText("تاریخ : "+daramadRuzane.getDate());
+        mablagh.setText("مبلغ : "+daramadRuzane.getMablagh());
+        des.setText("توضیحات : "+daramadRuzane.getDes());
+        final ViewGroup mContainer = (ViewGroup) findViewById(
+                android.R.id.content).getRootView();
+        new SetAppFont(this,mContainer);
     }
 }

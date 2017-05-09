@@ -1,6 +1,7 @@
 package com.example.alireza.parking.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 public class BayganiAdapter extends BaseAdapter {
     ArrayList<String> list;
     Context context;
+    Typeface font;
     public BayganiAdapter (ArrayList<String> list , Context context){
         this.list = list;
         this.context = context;
@@ -42,16 +44,19 @@ public class BayganiAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        font = Typeface.createFromAsset(context.getAssets(), "fonts/byekan+.ttf");
         View rowView=convertView;
         if (rowView == null){
             LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.baygani_list_view_item,parent , false);
             BayganiAdapter.ViewHolder viewHolder=new BayganiAdapter.ViewHolder();
             viewHolder.Status=(TextView)rowView.findViewById(R.id.baygani_list_view_item_txt);
+
             rowView.setTag(viewHolder);
         }
         BayganiAdapter.ViewHolder viewHolder=(BayganiAdapter.ViewHolder)rowView.getTag();
         viewHolder.Status.setText(list.get(position));
+        viewHolder.Status.setTypeface(font);
         return rowView;
     }
 }
